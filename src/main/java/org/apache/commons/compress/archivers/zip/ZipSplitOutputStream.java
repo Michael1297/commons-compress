@@ -37,7 +37,7 @@ import org.apache.commons.compress.utils.FileNameUtils;
  *
  * @since 1.20
  */
-final class ZipSplitOutputStream extends RandomAccessOutputStream {
+public final class ZipSplitOutputStream extends RandomAccessOutputStream {
 
     /**
      * 8.5.1 Capacities for split archives are as follows:
@@ -72,7 +72,7 @@ final class ZipSplitOutputStream extends RandomAccessOutputStream {
      * @throws IllegalArgumentException if arguments are illegal: Zip split segment size should between 64K and 4,294,967,295.
      * @throws IOException              if an I/O error occurs
      */
-    ZipSplitOutputStream(final File zipFile, final long splitSize) throws IllegalArgumentException, IOException {
+    public ZipSplitOutputStream(final File zipFile, final long splitSize) throws IllegalArgumentException, IOException {
         this(zipFile.toPath(), splitSize);
     }
 
@@ -86,7 +86,7 @@ final class ZipSplitOutputStream extends RandomAccessOutputStream {
      * @throws IOException              if an I/O error occurs
      * @since 1.22
      */
-    ZipSplitOutputStream(final Path zipFile, final long splitSize) throws IllegalArgumentException, IOException {
+    public ZipSplitOutputStream(final Path zipFile, final long splitSize) throws IllegalArgumentException, IOException {
         if (splitSize < ZIP_SEGMENT_MIN_SIZE || splitSize > ZIP_SEGMENT_MAX_SIZE) {
             throw new IllegalArgumentException("Zip split segment size should between 64K and 4,294,967,295");
         }
